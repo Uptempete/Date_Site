@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you go on a date with me?</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="fireworksCanvas" aria-hidden="true"></canvas>
+
+    <main class="page-shell">
+      <div class="floating-shapes" aria-hidden="true">
+        <span class="heart heart-one">♡</span>
+        <span class="heart heart-two">♥</span>
+        <span class="heart heart-three">♡</span>
+        <span class="bubble bubble-one"></span>
+        <span class="bubble bubble-two"></span>
+        <span class="bubble bubble-three"></span>
+      </div>
+
+      <section class="screen active" id="questionScreen" aria-labelledby="questionTitle">
+        <div class="card question-card">
+          <p class="eyebrow">I have a question</p>
+          <h1 id="questionTitle">Will you go on a date with me?</h1>
+
+          <div class="button-row">
+            <button class="button primary-button" type="button" id="yesButton">Yes</button>
+            <button class="button ghost-button no-button" type="button" id="noButton">No</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="activityScreen" aria-labelledby="activityTitle">
+        <div class="card">
+          <p class="eyebrow">Step one</p>
+          <h2 id="activityTitle">What are we feeling?</h2>
+
+          <div class="activity-grid" role="listbox" aria-label="Choose one activity">
+            <button class="choice-card" type="button" data-activity="Picknick am Teich mit Joy">Picknick am Teich mit Joy</button>
+            <button class="choice-card" type="button" data-activity="Shoppen">Shoppen</button>
+            <button class="choice-card" type="button" data-activity="Kino mit Essen">Kino mit Essen</button>
+            <button class="choice-card" type="button" data-activity="Tierpark Schönbrunn">Tierpark Schönbrunn</button>
+            <button class="choice-card" type="button" data-activity="Rooftopbar in Wien">Rooftopbar in Wien</button>
+            <button class="choice-card" type="button" data-activity="Etwas anderes">Etwas anderes</button>
+          </div>
+
+          <button class="button primary-button wide-button" type="button" id="activityNextButton" disabled>
+            Next
+          </button>
+        </div>
+      </section>
+
+      <section class="screen" id="dateScreen" aria-labelledby="dateTitle">
+        <div class="card">
+          <p class="eyebrow">Step two</p>
+          <h2 id="dateTitle">Pick our date</h2>
+
+          <div class="date-options" role="listbox" aria-label="Choose one date">
+            <button class="date-card" type="button" data-date="Dienstag, 23. Juni">Dienstag, 23.6.</button>
+            <button class="date-card" type="button" data-date="Donnerstag, 25. Juni">Donnerstag, 25.6.</button>
+            <button class="date-card" type="button" data-date="Freitag, 26. Juni">Freitag, 26.6.</button>
+          </div>
+
+          <label class="custom-date-label" for="customTime">Welche Uhrzeit?</label>
+          <input class="date-input" type="time" id="customTime" aria-label="Choose a time">
+
+          <button class="button primary-button wide-button" type="button" id="confirmButton" disabled>
+            Confirm our plans
+          </button>
+        </div>
+      </section>
+
+      <section class="screen" id="finalScreen" aria-labelledby="finalTitle">
+        <div class="card final-card">
+          <h2 id="finalTitle">Perfect. It's a date.</h2>
+          <p class="soft-copy">WUHUUUUUUUUUUUUUU</p>
+
+          <dl class="summary-list">
+            <div>
+              <dt>Activity</dt>
+              <dd id="summaryActivity">-</dd>
+            </div>
+            <div>
+              <dt>Date</dt>
+              <dd id="summaryDate">-</dd>
+            </div>
+            <div>
+              <dt>Time</dt>
+              <dd id="summaryTime">-</dd>
+            </div>
+          </dl>
+
+          <form id="dateForm" action="https://formspree.io/f/mojzgbeo" method="POST">
+            <input type="hidden" name="activity" id="formActivity">
+            <input type="hidden" name="date" id="formDate">
+            <input type="hidden" name="timestamp" id="formTimestamp">
+            <input type="hidden" name="message" id="formMessage">
+
+            <button class="button primary-button wide-button" type="submit" id="submitChoiceButton">
+              Tell me
+            </button>
+
+            <p id="formStatus" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
