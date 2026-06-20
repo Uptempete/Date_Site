@@ -144,13 +144,23 @@ function updateDateSelection(dateValue) {
 }
 
 function updateTimeSelection(timeValue) {
-  selectedTime = timeValue;
+  selectedTime = formatTimeInput(timeValue);
   updateConfirmButton();
 }
 
 function updateConfirmButton() {
-  selectedTime = customTime.value;
+  selectedTime = formatTimeInput(customTime.value);
   confirmButton.disabled = !selectedDate || !selectedTime;
+}
+
+function formatTimeInput(value) {
+  const cleanValue = value.trim().replace(".", ":");
+
+  if (/^\d{3,4}$/.test(cleanValue)) {
+    return `${cleanValue.slice(0, -2)}:${cleanValue.slice(-2)}`;
+  }
+
+  return cleanValue;
 }
 
 function formatDateForSummary(value) {
@@ -348,6 +358,12 @@ dateButtons.forEach((button) => {
 });
 
 customTime.addEventListener("input", () => {
+  const formattedTime = formatTimeInput(customTime.value);
+
+  if (/^\d{1,2}:\d{2}$/.test(formattedTime)) {
+    customTime.value = formattedTime;
+  }
+
   updateTimeSelection(customTime.value);
 });
 

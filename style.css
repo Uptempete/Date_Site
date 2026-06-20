@@ -23,10 +23,12 @@
 
 html {
   min-height: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
@@ -62,6 +64,7 @@ input {
 
 button {
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 #fireworksCanvas {
@@ -84,6 +87,7 @@ button {
   z-index: 1;
   display: grid;
   min-height: 100svh;
+  min-height: 100dvh;
   padding: clamp(1.25rem, 4vw, 3rem);
   place-items: center;
   overflow-x: hidden;
@@ -94,6 +98,7 @@ button {
   inset: 0;
   display: grid;
   min-height: 100svh;
+  min-height: 100dvh;
   padding: clamp(1.25rem, 4vw, 3rem);
   place-items: center;
   pointer-events: none;
@@ -287,16 +292,27 @@ h2 {
 }
 
 .date-input {
+  display: block;
   width: min(100%, 23rem);
+  max-width: 100%;
+  min-width: 0;
   min-height: 3.2rem;
   padding: 0 1rem;
   border: 1px solid rgba(34, 211, 238, 0.28);
   border-radius: 999px;
   color: var(--star-white);
   color-scheme: dark;
+  appearance: none;
+  -webkit-appearance: none;
   background: rgba(248, 250, 252, 0.1);
   box-shadow: var(--soft-shadow);
   font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.date-input::placeholder {
+  color: rgba(248, 250, 252, 0.56);
 }
 
 .summary-list {
@@ -439,6 +455,7 @@ h2 {
 @media (max-width: 620px) {
   body {
     min-height: 100svh;
+    min-height: 100dvh;
   }
 
   .page-shell,
@@ -453,12 +470,14 @@ h2 {
 
   .screen.active {
     min-height: 100svh;
+    min-height: 100dvh;
   }
 
   .card {
     width: 100%;
+    max-width: 24rem;
     margin: auto 0;
-    padding: 1.35rem 1rem;
+    padding: 1.2rem 0.9rem;
     border-radius: 22px;
   }
 
@@ -480,7 +499,7 @@ h2 {
   }
 
   h2 {
-    font-size: clamp(2.1rem, 11vw, 3.1rem);
+    font-size: clamp(2rem, 10vw, 2.75rem);
   }
 
   .button-row {
@@ -499,6 +518,7 @@ h2 {
   .wide-button,
   .date-input {
     width: 100%;
+    max-width: 100%;
   }
 
   .wide-button {
@@ -517,18 +537,18 @@ h2 {
 
   .choice-card,
   .date-card {
-    min-height: 3.65rem;
+    min-height: 3.25rem;
     padding: 0.75rem 0.9rem;
     border-radius: 16px;
     font-size: 0.95rem;
   }
 
   .custom-date-label {
-    margin-top: 1rem;
+    margin-top: 0.9rem;
   }
 
   .date-input {
-    min-height: 3.15rem;
+    min-height: 3rem;
   }
 
   .summary-list div {
@@ -557,6 +577,7 @@ h2 {
   }
 
   .card {
+    max-width: 22rem;
     padding: 1.1rem 0.85rem;
     border-radius: 18px;
   }
@@ -566,13 +587,18 @@ h2 {
   }
 
   h2 {
-    font-size: clamp(1.8rem, 10vw, 2.55rem);
+    font-size: clamp(1.75rem, 9vw, 2.3rem);
   }
 
   .choice-card,
   .date-card {
-    min-height: 3.25rem;
+    min-height: 3rem;
     font-size: 0.9rem;
+  }
+
+  .date-input,
+  .button {
+    min-height: 2.9rem;
   }
 
   .button-row {
