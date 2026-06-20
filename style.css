@@ -224,6 +224,7 @@ h2 {
 
 .no-button {
   z-index: 5;
+  width: auto;
   transition: left 260ms cubic-bezier(0.16, 1, 0.3, 1), top 260ms cubic-bezier(0.16, 1, 0.3, 1), transform var(--transition), box-shadow var(--transition);
 }
 
@@ -483,7 +484,7 @@ h2 {
   .card {
     width: 100%;
     max-width: 24rem;
-    margin: auto 0;
+    margin: auto;
     padding: 1.2rem 0.9rem;
     border-radius: 22px;
   }
@@ -520,6 +521,12 @@ h2 {
     width: 100%;
     min-width: 0;
     min-height: 3.15rem;
+  }
+
+  .no-button {
+    width: auto;
+    min-width: 6.4rem;
+    padding-inline: 1.4rem;
   }
 
   .wide-button,
@@ -586,6 +593,7 @@ h2 {
 
   .card {
     max-width: 22rem;
+    margin: auto;
     padding: 1.1rem 0.85rem;
     border-radius: 18px;
   }
