@@ -83,16 +83,17 @@ button {
   position: relative;
   z-index: 1;
   display: grid;
-  min-height: 100vh;
+  min-height: 100svh;
   padding: clamp(1.25rem, 4vw, 3rem);
   place-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .screen {
   position: absolute;
   inset: 0;
   display: grid;
+  min-height: 100svh;
   padding: clamp(1.25rem, 4vw, 3rem);
   place-items: center;
   pointer-events: none;
@@ -145,7 +146,7 @@ h2 {
 }
 
 h1 {
-  font-size: clamp(2.35rem, 8vw, 4.7rem);
+  font-size: clamp(2.55rem, 8vw, 4.7rem);
 }
 
 h2 {
@@ -250,6 +251,7 @@ h2 {
 .choice-card,
 .date-card {
   min-height: 4.15rem;
+  padding: 0.8rem 1rem;
   border: 1px solid rgba(248, 250, 252, 0.14);
   border-radius: 18px;
   color: var(--star-white);
@@ -435,25 +437,98 @@ h2 {
 }
 
 @media (max-width: 620px) {
+  body {
+    min-height: 100svh;
+  }
+
   .page-shell,
   .screen {
-    padding: 1rem;
+    padding: 0.85rem;
+  }
+
+  .screen {
+    align-items: start;
+    overflow-y: auto;
+  }
+
+  .screen.active {
+    min-height: 100svh;
   }
 
   .card {
+    width: 100%;
+    margin: auto 0;
+    padding: 1.35rem 1rem;
     border-radius: 22px;
   }
 
+  .question-card {
+    min-height: min(74svh, 34rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.55rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    font-size: clamp(2.65rem, 15vw, 4rem);
+  }
+
+  h2 {
+    font-size: clamp(2.1rem, 11vw, 3.1rem);
+  }
+
   .button-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
+    margin-top: 1.5rem;
   }
 
   .button {
-    min-width: 6.4rem;
+    width: 100%;
+    min-width: 0;
+    min-height: 3.15rem;
+  }
+
+  .wide-button,
+  .date-input {
+    width: 100%;
+  }
+
+  .wide-button {
+    margin-top: 1.2rem;
+  }
+
+  .activity-grid,
+  .date-options {
+    gap: 0.7rem;
+    margin-top: 1.2rem;
   }
 
   .activity-grid {
     grid-template-columns: 1fr;
+  }
+
+  .choice-card,
+  .date-card {
+    min-height: 3.65rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 16px;
+    font-size: 0.95rem;
+  }
+
+  .custom-date-label {
+    margin-top: 1rem;
+  }
+
+  .date-input {
+    min-height: 3.15rem;
   }
 
   .summary-list div {
@@ -464,6 +539,44 @@ h2 {
 
   .summary-list dd {
     text-align: left;
+  }
+
+  .heart {
+    font-size: 3rem;
+  }
+
+  .bubble {
+    width: 4.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .page-shell,
+  .screen {
+    padding: 0.6rem;
+  }
+
+  .card {
+    padding: 1.1rem 0.85rem;
+    border-radius: 18px;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 14vw, 3.25rem);
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 10vw, 2.55rem);
+  }
+
+  .choice-card,
+  .date-card {
+    min-height: 3.25rem;
+    font-size: 0.9rem;
+  }
+
+  .button-row {
+    gap: 0.55rem;
   }
 }
 
