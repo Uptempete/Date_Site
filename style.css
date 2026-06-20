@@ -311,10 +311,20 @@ h2 {
   font-family: "Trebuchet MS", Arial, sans-serif;
   font-size: 1rem;
   text-align: center;
+  text-align-last: center;
 }
 
 .date-input::-webkit-date-and-time-value {
+  display: block;
+  width: 100%;
   text-align: center;
+}
+
+.date-input::-webkit-datetime-edit,
+.date-input::-webkit-datetime-edit-fields-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .date-input::-webkit-calendar-picker-indicator {
